@@ -6,12 +6,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🚢 RETRO BATTLESHIP</h1>
-  <p id="status">Sink all 5 ships!</p>
+  <h1>🚢 RETRO BATTLESHIP: PvP Mode</h1>
+  <p id="status">Sink all 5 enemy ships before they sink yours!</p>
   <p id="shots">Shots: 0</p>
-  <p id="shipsSunk">Ships sunk: 0 / 5</p>
-  <div id="board"></div>
+  <p id="shipsSunk">Enemy Ships Sunk: 0 / 5</p>
+  <p id="playerShips">Your Ships Remaining: 5</p>
+
+  <div class="boards-container">
+    <div>
+      <h2>ENEMY WATERS</h2>
+      <div id="enemy-board"></div>
+    </div>
+    <div>
+      <h2>YOUR WATERS</h2>
+      <div id="player-board"></div>
+    </div>
+  </div>
+
+  <button id="radar">RADAR SCAN 🛰️</button>
   <button id="restart">RESTART</button>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -4,6 +4,25 @@ body {
   font-family: 'Press Start 2P', cursive;
   text-align: center;
   padding: 2rem;
+
+  /* 🌊 Pixel Water Animation */
+  animation: water 5s linear infinite;
+  background-image: 
+    linear-gradient(45deg, rgba(0,255,0,0.05) 25%, transparent 25%), 
+    linear-gradient(-45deg, rgba(0,255,0,0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0,255,0,0.03) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0,255,0,0.03) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+}
+
+@keyframes water {
+  0% {
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+  }
+  100% {
+    background-position: 40px 40px, 40px 60px, 60px 20px, 20px 40px;
+  }
 }
 
 h1 {
@@ -11,17 +30,31 @@ h1 {
   margin-bottom: 1rem;
 }
 
-#status, #shots {
-  margin: 0.5rem 0;
+h2 {
   font-size: 12px;
+  margin: 1rem 0 0.5rem;
 }
 
-#board {
+#status, #shots, #shipsSunk, #playerShips {
+  margin: 0.4rem 0;
+  font-size: 10px;
+}
+
+.boards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem auto;
+}
+
+#enemy-board,
+#player-board {
   display: grid;
   grid-template-columns: repeat(10, 30px);
   gap: 2px;
   justify-content: center;
-  margin: 1rem auto;
+  margin: auto;
 }
 
 .cell {
@@ -34,6 +67,7 @@ h1 {
   align-items: center;
   justify-content: center;
   font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
 .cell.hit {
@@ -65,7 +99,7 @@ h1 {
   }
 }
 
-#restart {
+#restart, #radar {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   background: #0f0;
@@ -74,4 +108,5 @@ h1 {
   font-family: inherit;
   cursor: pointer;
   font-size: 10px;
+  margin-right: 0.5rem;
 }
